@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Theme applied to the Android Window while the process is starting when the OS's Dark Mode setting is off -->
+    <style name="LaunchTheme" parent="@android:style/Theme.Light.NoTitleBar">
+        <!-- Show a splash screen on the activity. Automatically removed when
+             the Flutter engine draws its first frame -->
+        <item name="android:windowBackground">@drawable/launch_background</item>
+    </style>
+    <!-- Theme applied to the Android Window as soon as the process has started.
+         This theme determines the color of the Android Window while your
+         Flutter UI initializes, as well as behind your Flutter UI while its
+         running.
+
+         This Theme is only used starting with V2 of Flutter's Android embedding. -->
+    <style name="NormalTheme" parent="@android:style/Theme.Light.NoTitleBar">
+        <!-- 窗口背景钉成不透明浅色，不用 ?android:colorBackground。
+             后者是主题属性，系统处于深色时解析成深色（即使父主题是 Theme.Light），
+             于是 Dart 首帧上屏前这段窗口背景会「白启动屏 → 黑 → 浅色首帧」。
+             用户把应用锁在浅色时也照样闪黑，故按应用主题而非系统 uiMode 取值。 -->
+        <item name="android:windowBackground">@drawable/launch_background</item>
+    </style>
+
+    <!-- 锁屏歌词主题：暗色全屏无标题栏，不透明遮住锁屏时钟，作为纯展示层 -->
+    <style name="Theme.MD3Music.LockScreen" parent="@android:style/Theme.Black.NoTitleBar">
+        <item name="android:windowBackground">#FF000000</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
+</resources>
